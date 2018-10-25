@@ -16,18 +16,28 @@
 
 package pl.wavesoftware.eid;
 
-import javax.annotation.Nonnull;
-import javax.annotation.meta.TypeQualifierDefault;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-
 /**
+ * A settings provider interface.
+ *
  * @author <a href="mailto:krzysztof.suszynski@wavesoftware.pl">Krzysztof Suszynski</a>
- * @since 2016-03-26
+ * @since 2.0.0
  */
-@Nonnull
-@TypeQualifierDefault(ElementType.METHOD)
-@Retention(RetentionPolicy.RUNTIME)
-public @interface ReturnTypesAreNonnullByDefault {
+public interface SettingsProvider {
+    /**
+     * Gets settings object
+     *
+     * @return a settings object
+     */
+    Settings getSettings();
+
+    /**
+     * Configures an Eid library programmatically. Note, that method returns a
+     * configurator that can be used to restore configuration to the state
+     * before you invoke this configuration method.
+     *
+     * @param configurator a configurator to use to configure Eid library
+     * @return a reference to a configurator that can be used to restore
+     * previous configuration
+     */
+    EidConfigurator configure(EidConfigurator configurator);
 }

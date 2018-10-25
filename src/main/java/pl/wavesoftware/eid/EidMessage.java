@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 Wave Software
+ * Copyright (c) 2018 Wave Software
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,10 +14,18 @@
  * limitations under the License.
  */
 
+package pl.wavesoftware.eid;
+
 /**
  * @author <a href="mailto:krzysztof.suszynski@wavesoftware.pl">Krzysztof Suszynski</a>
- * @since 2016-03-26
+ * @since 2.0.0
  */
-@javax.annotation.ParametersAreNonnullByDefault
-@pl.wavesoftware.eid.ReturnTypesAreNonnullByDefault
-package pl.wavesoftware.eid.utils;
+public interface EidMessage extends CharSequence, EidContainer {
+
+    /**
+     * Get a formatted message
+     *
+     * @return a formatted message
+     */
+    CharSequence getFormattedMessage();
+}

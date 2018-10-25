@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 Wave Software
+ * Copyright (c) 2018 Wave Software
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,10 +14,30 @@
  * limitations under the License.
  */
 
+package pl.wavesoftware.eid;
+
 /**
+ * Represents a formatter that will be used to display an Eid number in logs
+ * or screen.
+ *
  * @author <a href="mailto:krzysztof.suszynski@wavesoftware.pl">Krzysztof Suszynski</a>
- * @since 2016-03-26
+ * @since 2.0.0
  */
-@javax.annotation.ParametersAreNonnullByDefault
-@pl.wavesoftware.eid.ReturnTypesAreNonnullByDefault
-package pl.wavesoftware.eid.utils;
+public interface Formatter {
+    /**
+     * Formats an Eid number to string
+     *
+     * @param eid an eid number
+     * @return a string with formatted Eid number
+     */
+    String format(Eid eid);
+
+    /**
+     * Formats an Eid paired with a message.
+     *
+     * @param eid     an eid number to format
+     * @param message a message to be pair to eid
+     * @return a string with formatted eid and message
+     */
+    String format(Eid eid, String message);
+}

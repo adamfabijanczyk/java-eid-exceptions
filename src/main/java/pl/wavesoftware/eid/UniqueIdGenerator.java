@@ -14,10 +14,20 @@
  * limitations under the License.
  */
 
+package pl.wavesoftware.eid;
+
 /**
- * @author <a href="mailto:krzysztof.suszynski@wavesoftware.pl">Krzysztof Suszynski</a>
- * @since 2016-03-26
+ * It is used to generate unique ID for each EID object. It's mustn't be secure
+ * because it just indicate EID object while logging.
+ *
+ * @since 1.0.0
  */
-@javax.annotation.ParametersAreNonnullByDefault
-@pl.wavesoftware.eid.ReturnTypesAreNonnullByDefault
-package pl.wavesoftware.eid.utils;
+public interface UniqueIdGenerator {
+
+    /**
+     * Generates a unique string ID
+     *
+     * @return a generated unique ID
+     */
+    String generateUniqId();
+}
